@@ -22,6 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Core\OfferManagementSystem.Application\OfferManagementSystem.Application.csproj" />
     <ProjectReference Include="..\..\Infrastructure\OfferManagementSystem.Persistence\OfferManagementSystem.Persistence.csproj" />
   </ItemGroup>
 
