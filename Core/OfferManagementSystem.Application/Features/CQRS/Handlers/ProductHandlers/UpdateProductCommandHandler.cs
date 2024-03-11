@@ -26,7 +26,7 @@ namespace OfferManagementSystem.Application.Features.CQRS.Handlers.ProductHandle
 			values.UserId = command.UserId;
 			values.ModifiedTime = command.ModifiedTime;
 			values.Name = command.Name;
-			values.Id = command.Id;
+			await _repository.UpdateAsync(values);
 
 		}
 	}

@@ -1,3 +1,5 @@
+using OfferManagementSystem.Application.Features.CQRS.Handlers.CustomerHandlers;
+using OfferManagementSystem.Application.Features.CQRS.Handlers.OfferHandlers;
 using OfferManagementSystem.Application.Features.CQRS.Handlers.ProductHandlers;
 using OfferManagementSystem.Application.Features.CQRS.Handlers.UserHandlers;
 using OfferManagementSystem.Application.Interfaces;
@@ -26,6 +28,21 @@ builder.Services.AddScoped<RemoveProductCommandHandler>();
 builder.Services.AddScoped<UpdateProductCommandHandler>();
 
 
+
+
+
+builder.Services.AddScoped<GetCustomerQueryHandler>();
+builder.Services.AddScoped<GetCustomerByIdQueryHandler>();
+builder.Services.AddScoped<CreateCustomerCommandHandler>();
+builder.Services.AddScoped<RemoveCustomerCommandHandler>();
+builder.Services.AddScoped<UpdateCustomerCommandHandler>();
+
+
+builder.Services.AddScoped<GetOfferQueryHandler>();
+builder.Services.AddScoped<GetOfferByIdQueryHandler>();
+builder.Services.AddScoped<CreateOfferCommandHandler>();
+builder.Services.AddScoped<RemoveOfferCommandHandler>();
+builder.Services.AddScoped<UpdateOfferCommandHandler>();
 
 
 
