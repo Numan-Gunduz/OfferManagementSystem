@@ -1,0 +1,43 @@
+﻿@model List<OfferManagementSystem.Dto.UserDtos.ResultUserDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+}
+
+<h1>Kullanıcı İşlem Sayfasıdır</h1>
+
+
+
+<table class="table table-bordered">
+	<tr>
+		<th>#</th>
+		<th>Kullanıcı Adı</th>
+		<th>Kullanıcı SoyAdı</th>
+		<th>Kullanıcı Mail</th>
+		<th>Kullanıcı Şifresi</th>
+		<th>Kullanıcı Oluşturulma Tarihi</th>
+		<th>Kullanıcı Değiştirilme Tarihi</th>	
+		<th>Oluşturulan Kullanıcı Id</th>
+		<th>Sil</th>
+		<th>Güncelle</th>
+		<th>Detaylar</th>
+	</tr>
+	@foreach (var item in Model)
+	{
+		<tr>
+			<th>@item.id</th>
+			<td>@item.firstName</td>
+			<td>@item.lastName</td>
+			<td>@item.email</td>
+			<td>@item.password</td>
+			<td>@item.createdTime</td>
+			<td>@item.modifiedTime</td>
+			<td>@item.createdUserId</td>
+			<td><a href="/User/RemoveUser/@item.id" class="btn mb-1 btn-rounded btn-outline-danger">Sil</a></td>
+			<td><a href="/User/UpdateUser/@item.id" class="btn mb-1 btn-rounded btn-outline-success">Güncelle</a></td>
+			<td><a href="#" class="btn mb-1 btn-rounded btn-outline-dark">Detaylar</a></td>
+		</tr>
+	}
+</table>
+<a href="/User/AddUser/" class="btn mb-1 btn-rounded btn-outline-info">Yeni Kullanıcı Girişi</a>
+

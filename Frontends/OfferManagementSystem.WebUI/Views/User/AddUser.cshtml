@@ -1,0 +1,42 @@
+﻿@model AddUserDto
+@{
+	ViewData["Title"] = "AddUser";
+	Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+}
+
+<h1>Kullanıcı Ekleme Sayfası</h1>
+
+
+<form method="post">
+	<label>Kullanıcı Adı</label>
+	<input type="text" asp-for="firstName" class="form-control" />
+	<br />
+
+	<label>Kullanıcı SoyAdı</label>
+	<input type="text" asp-for="lastName" class="form-control" />
+	<br />
+
+	<label>Kullanıcı Maili</label>
+	<input type="text" asp-for="email" class="form-control" />
+	<br />
+
+	<label>Kullanıcı Şifresi</label>
+	<input type="password" asp-for="password" class="form-control" />
+	<br />
+	<label>Oluşturulma zamanı</label>
+	<input type="text" asp-for="createdTime" class="form-control" />
+	<br />
+
+	<label>Modifye zamanı</label>
+	<input type="text" asp-for="modifiedTime" class="form-control" />
+	<br />
+
+	<label>oluşturan Kullanıcı ıd</label>
+	<input type="text" asp-for="createdUserId" class="form-control" />
+	<br />
+
+
+	<button class="btn btn-primary">Kullanıcıi Ekle</button>
+</form>
+
+

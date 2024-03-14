@@ -42,8 +42,9 @@ namespace OfferManagementSystem.WebApi.Controllers
 			await _createUserCommandHandler.Handle(command);
 			return Ok("Kullanıcı Bilgisi Eklendi");
 		}
-		[HttpDelete]
-		public async Task <IActionResult>RemoveUser( int id)
+
+		[HttpDelete("{id}")]
+		public async Task <IActionResult>RemoveUser(int id)
 		{
 			await _removeUserCommandHandler.Handle(new RemoveUserCommand(id));
 			return Ok("Kullanıcı Bilgisi Silindi");
