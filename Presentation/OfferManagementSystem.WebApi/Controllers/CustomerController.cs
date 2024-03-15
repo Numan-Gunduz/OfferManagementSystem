@@ -43,7 +43,7 @@ namespace OfferManagementSystem.WebApi.Controllers
 			await _createCustomerCommandHandler.Handle(command);
 			return Ok("Müşteri Bilgisi Eklendi");
 		}
-		[HttpDelete]
+		[HttpDelete("{id}")]
 		public async Task<IActionResult> RemoveCustomer(int id)
 		{
 			await _removeCustomerCommandHandler.Handle(new RemoveCustomerCommand(id));

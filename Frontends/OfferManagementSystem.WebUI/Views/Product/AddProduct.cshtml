@@ -1,0 +1,40 @@
+﻿@using OfferManagementSystem.Dto.ProductDtos
+
+@model AddProductDto
+@{
+    ViewData["Title"] = "AddProduct";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+}
+
+<h1>Ürün Ekleme Sayfası</h1>
+
+
+<form method="post">
+	<label>Ürün Adı</label>
+	<input type="text" asp-for="Name" class="form-control" />
+	<br />
+
+	<label>Ürün AÇıklaması</label>
+	<input type="text" asp-for="Description" class="form-control" />
+	<br />
+
+	<label>Ürün Fiyatı</label>
+	<input type="text" asp-for="Price" class="form-control" />
+	<br />
+
+	<label>Oluşturulma zamanı</label>
+	<input type="text" asp-for="CreatedTime" class="form-control" />
+	<br />
+
+	<label>Modifye zamanı</label>
+	<input type="text" asp-for="ModifiedTime" class="form-control" />
+	<br />
+
+	<label>Oluşturan Kullanıcı</label>
+	<input type="text" asp-for="UserId" class="form-control" />
+	<br />
+
+
+	<button class="btn btn-primary">Ürün Ekle</button>
+</form>
+

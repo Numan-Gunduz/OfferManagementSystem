@@ -1,16 +1,16 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using OfferManagementSystem.Dto.CustomerDtos;
 using OfferManagementSystem.Dto.ProductDtos;
-using OfferManagementSystem.Dto.UserDtos;
 using System.Text;
 
 namespace OfferManagementSystem.WebUI.Controllers
 {
-	public class ProductController : Controller
+	public class CustomerController : Controller
 	{
 		private readonly IHttpClientFactory _httpClientFactory;
 
-		public ProductController(IHttpClientFactory httpClientFactory)
+		public CustomerController(IHttpClientFactory httpClientFactory)
 		{
 			_httpClientFactory = httpClientFactory;
 		}
@@ -18,31 +18,32 @@ namespace OfferManagementSystem.WebUI.Controllers
 		public async Task<IActionResult> Index()
 		{
 			var client = _httpClientFactory.CreateClient();
-			var responseMessage = await client.GetAsync("https://localhost:44359/api/Product");
+			var responseMessage = await client.GetAsync("https://localhost:44359/api/Customer");
 			if (responseMessage.IsSuccessStatusCode)
 			{
 				var jsonData = await responseMessage.Content.ReadAsStringAsync();
-				var values = JsonConvert.DeserializeObject<List<ResultProductDto>>(jsonData);
+				var values = JsonConvert.DeserializeObject<List<ResultCustomerDto>>(jsonData);
 				return View(values);
 			}
 			return View();
 		}
-		[HttpGet]
-		public IActionResult AddProduct()
+
+
+		public IActionResult AddCustomer()
 		{
 			return View();
 		}
 		[HttpPost]
-		public async Task<IActionResult> AddProduct(AddProductDto addProductDto)
+		public async Task<IActionResult> AddCustomer(AddCustomerDto addCustomerDto)
 		{
 			if (!ModelState.IsValid)
 			{
 				return View();
 			}
 			var client = _httpClientFactory.CreateClient();
-			var jsonData = JsonConvert.SerializeObject(addProductDto);
+			var jsonData = JsonConvert.SerializeObject(addCustomerDto);
 			StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
-			var responseMessage = await client.PostAsync("https://localhost:44359/api/Product", stringContent);
+			var responseMessage = await client.PostAsync("https://localhost:44359/api/Customer", stringContent);
 			if (responseMessage.IsSuccessStatusCode)
 			{
 				return RedirectToAction("Index");
@@ -50,10 +51,10 @@ namespace OfferManagementSystem.WebUI.Controllers
 			}
 			return View();
 		}
-		public async Task<IActionResult> RemoveProduct(int id)
+		public async Task<IActionResult> RemoveCustomer(int id)
 		{
 			var client = _httpClientFactory.CreateClient();
-			var responseMessage = await client.DeleteAsync($"https://localhost:44359/api/Product/{id}");
+			var responseMessage = await client.DeleteAsync($"https://localhost:44359/api/Customer/{id}");
 			if (responseMessage.IsSuccessStatusCode)
 			{
 				return RedirectToAction("Index");
@@ -65,17 +66,16 @@ namespace OfferManagementSystem.WebUI.Controllers
 			}
 		}
 
-
 		[HttpGet]
-		public async Task<IActionResult> UpdateProduct(int id)
+		public async Task<IActionResult> UpdateCustomer(int id)
 		{
 			var client = _httpClientFactory.CreateClient();
-			var responseMessage = await client.GetAsync($"https://localhost:44359/api/Product/{id}");
+			var responseMessage = await client.GetAsync($"https://localhost:44359/api/Customer/{id}");
 
 			if (responseMessage.IsSuccessStatusCode)
 			{
 				var jsonData = await responseMessage.Content.ReadAsStringAsync();
-				var values = JsonConvert.DeserializeObject<UpdateProductDto>(jsonData);
+				var values = JsonConvert.DeserializeObject<UpdateCustomerDtos>(jsonData);
 				return View(values);
 			}
 			return View();
@@ -85,16 +85,16 @@ namespace OfferManagementSystem.WebUI.Controllers
 
 
 		[HttpPost]
-		public async Task<IActionResult> UpdateProduct(UpdateProductDto updateProductDto)
+		public async Task<IActionResult> UpdateCustomer(UpdateCustomerDtos updateCustomerDtos)
 		{
 			if (!ModelState.IsValid)
 			{
 				return View();
 			}
 			var client = _httpClientFactory.CreateClient();
-			var jsonData = JsonConvert.SerializeObject(updateProductDto);
+			var jsonData = JsonConvert.SerializeObject(updateCustomerDtos);
 			StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
-			var responseMessage = await client.PutAsync("https://localhost:44359/api/Product", stringContent);
+			var responseMessage = await client.PutAsync("https://localhost:44359/api/Customer", stringContent);
 
 			if (responseMessage.IsSuccessStatusCode)
 			{

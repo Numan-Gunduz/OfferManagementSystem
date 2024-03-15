@@ -44,7 +44,7 @@ namespace OfferManagementSystem.WebApi.Controllers
 			return Ok("Ürün Bilgisi Eklendi");
 		}
 
-		[HttpDelete]
+		[HttpDelete("{id}")]
 		public async Task<IActionResult> RemoveProduct(int id)
 		{
 			await _removeProductCommandHandler.Handle(new RemoveProductCommand(id));

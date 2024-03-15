@@ -1,0 +1,45 @@
+﻿@using OfferManagementSystem.Dto.CustomerDtos
+@model AddCustomerDto
+@{
+    ViewData["Title"] = "AddCustomer";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+}
+
+<h1>Müşteri Ekleme Sayfası</h1>
+<br />
+<form method="post">
+	<label>Müşteri Adı</label>
+	<input type="text" asp-for="FirstName" class="form-control" />
+	<br />
+
+	<label>Müşteri Soyadı</label>
+	<input type="text" asp-for="LastName" class="form-control" />
+	<br />
+
+	<label>Müşteri Mail Adresi</label>
+	<input type="email" asp-for="Email" class="form-control" />
+	<br />
+
+	<label>Müşteri Telefon Numarası</label>
+	<input type="text" asp-for="Phone" class="form-control" />
+	<br />
+
+	<label>Müşteri Adresi</label>
+	<input type="text" asp-for="Address" class="form-control" />
+	<br />
+
+
+	<label>Oluşturulma zamanı</label>
+	<input type="text" asp-for="CreatedTime" class="form-control" />
+	<br />
+
+	<label>Modifye zamanı</label>
+	<input type="text" asp-for="ModifiedTime" class="form-control" />
+	<br />
+
+	<label>kullanıcı  ıd</label>
+	<input type="text" asp-for="UserId" class="form-control" />
+	<br />
+
+	<button class="btn btn-primary">Müşteri Ekle</button>
+</form>

@@ -1,0 +1,40 @@
+﻿@model List<OfferManagementSystem.Dto.ProductDtos.ResultProductDto>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+}
+
+<h1>Ürün işlemleri sayfası</h1>
+
+<table class="table table-bordered">
+	<tr>
+		<th>#</th>
+		<th>Ürün Adı</th>
+		<th>Ürün Açıklaması</th>
+		<th>Ürün Fiyatı</th>
+		<th>Ürün Oluşturulma Tarihi</th>
+		<th>Ürün Değiştirilme Tarihi</th>
+		<th>Oluşturulan Kullanıcı Id</th>
+		<th>Sil</th>
+		<th>Güncelle</th>
+		<th>Detaylar</th>
+	</tr>
+	@foreach (var item in Model)
+	{
+		<tr>
+			<th>@item.Id</th>
+			<td>@item.Name</td>
+			<td>@item.Description</td>
+			<td>@item.Price</td>
+			<td>@item.CreatedTime</td>
+			<td>@item.ModifiedTime</td>
+			<td>@item.UserId</td>
+
+			<td><a href="/Product/RemoveProduct/@item.Id" class="btn mb-1 btn-rounded btn-outline-danger">Sil</a></td>
+			<td><a href="/Product/UpdateProduct/@item.Id" class="btn mb-1 btn-rounded btn-outline-success">Güncelle</a></td>
+			<td><a href="#" class="btn mb-1 btn-rounded btn-outline-dark">Detaylar</a></td>
+		</tr>
+	}
+</table>
+<a href="/Product/AddProduct/" class="btn mb-1 btn-rounded btn-outline-info">Yeni Ürün Girişi</a>

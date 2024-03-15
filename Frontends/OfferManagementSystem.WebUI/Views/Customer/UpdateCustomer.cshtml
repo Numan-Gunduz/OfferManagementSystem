@@ -1,0 +1,58 @@
+﻿@model OfferManagementSystem.Dto.CustomerDtos.UpdateCustomerDtos
+@{
+    ViewData["Title"] = "UpdateCustomer";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+}
+
+<h1>Müşteri Güncelleme Sayfası</h1>
+
+<form method="post">
+	<input type="hidden" asp-for="Id" />
+	<label>Müşteri Adı</label>
+	<input type="text" asp-for="FirstName" class="form-control" />
+	@* 	<span asp-validation-for="firstName" class="text-info"></span> *@
+	<br />
+
+	<label>Müşteri Soyadı</label>
+	<input type="text" asp-for="LastName" class="form-control" />
+	@* <span asp-validation-for="lastName" class="text-info"></span> *@
+	<br />
+
+	<label>Müşteri Maili</label>
+	<input type="email" asp-for="Email" class="form-control" />
+	@* <span asp-validation-for="email" class="text-info"></span> *@
+	<br />
+
+	<label>Müşteri Telefon Numarası</label>
+	<input type="text" asp-for="Phone" class="form-control" />
+	@* <span asp-validation-for="email" class="text-info"></span> *@
+	<br /
+
+
+	<label>Müşteri Adresi</label>
+	<input type="text" asp-for="Address" class="form-control" />
+	@* <span asp-validation-for="email" class="text-info"></span> *@
+	<br /
+
+	<label>Oluşturulma zamanı</label>
+	<input type="text" asp-for="CreatedTime" class="form-control" />
+	@* <span asp-validation-for="createdTime" class="text-info"></span> *@
+	<br />
+
+	<label>Modifye zamanı</label>
+	<input type="text" asp-for="ModifiedTime" class="form-control" />
+	@* <span asp-validation-for="modifiedTime" class="text-info"></span> *@
+	<br />
+
+
+	@* <label>Oluşturan Kullanıcı Id</label>
+	<input type="text" asp-for="UserId" class="form-control" /> *@
+	@* <span asp-validation-for="createdUserId" class="text-info"></span> *@
+	<br />
+
+	<br />
+
+	<button class="btn btn-primary">Müşteri Güncelle</button>
+</form>
+
+
