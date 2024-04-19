@@ -23,7 +23,7 @@ namespace OfferManagementSystem.Application.Features.CQRS.Handlers.UserHandlers
 			{
 				FirstName = command.FirstName,
 				LastName = command.LastName,
-				CreatedUserId = command.CreatedUserId,
+				//CreatedUserId = command.CreatedUserId,
 				CreatedTime = command.CreatedTime,
 				Email = command.Email,
 				Password = command.Password,

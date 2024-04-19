@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace OfferManagementSystem.Persistence;
+namespace OfferManagementSystem.WebApi;
 
 public partial class UserMaster
 {

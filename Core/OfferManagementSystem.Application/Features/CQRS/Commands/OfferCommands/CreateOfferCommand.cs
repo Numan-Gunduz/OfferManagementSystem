@@ -27,14 +27,14 @@ namespace OfferManagementSystem.Application.Features.CQRS.Commands.OfferCommands
 
 		public int? CreatedUserId { get; set; }
 
-		//public virtual CustomerMaster? Customer { get; set; }
+		public virtual CustomerMaster? Customer { get; set; }
 
-		//public virtual ICollection<OfferDetail> OfferDetails { get; set; } = new List<OfferDetail>();
+		public virtual ICollection<OfferDetail> OfferDetails { get; set; } = new List<OfferDetail>();
 
 		//public virtual OfferStatus? Status { get; set; }
 
 		//public virtual ICollection<StatusTransition> StatusTransitions { get; set; } = new List<StatusTransition>();
 
-		//public virtual UserMaster? User { get; set; }
+		public virtual UserMaster? User { get; set; }
 	}
 }

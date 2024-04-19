@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 
-namespace OfferManagementSystem.Persistence;
+namespace OfferManagementSystem.WebApi;
 
 public partial class OfferManagementSystemContext : DbContext
 {
@@ -75,7 +75,7 @@ public partial class OfferManagementSystemContext : DbContext
 
             entity.HasOne(d => d.User).WithMany(p => p.CustomerMasters)
                 .HasForeignKey(d => d.UserId)
-                .HasConstraintName("FK_customer_master_user_master");
+                .HasConstraintName("FK_customer_master_user_master1");
         });
 
         modelBuilder.Entity<OfferDetail>(entity =>

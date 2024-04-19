@@ -22,6 +22,6 @@ namespace OfferManagementSystem.Application.Features.CQRS.Commands.UserCommands
 
 		public DateTime? ModifiedTime { get; set; }
 
-		public int? CreatedUserId { get; set; }
+	//	public int? CreatedUserId { get; set; }
 	}
 }

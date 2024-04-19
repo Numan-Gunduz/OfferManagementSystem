@@ -1,21 +1,21 @@
-﻿@model List<OfferManagementSystem.Dto.CustomerDtos.ResultCustomerDto>
+﻿@model List<OfferManagementSystem.Dto.OfferMasterDtos.ResultOfferDto>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
 }
 
-<h1>Müşteri işlemleri sayfası</h1>
-
+<h1>Teklif Görüntüleme Sayfası</h1>
 <table class="table table-bordered">
 	<tr>
 		<th>#</th>
 		<th>Müşteri Adı</th>
-		<th>Müşteri Soyadı</th>
-		<th>Müşteri Maili</th>
-		<th>Müşteri Telefon Numarası</th>
-		<th>Müşteri Adresi </th>
-		<th>Müşteri Oluşturulma Tarihi</th>
-		<th>Müşteri Değiştirilme Tarihi</th>
+		<th>Kullanıcı Adı</th>
+		<th>Teklif Oluşturulma saati</th>
+		<th>Teklif Geçerlilik Tarihi</th>
+		<th>Teklif Durum İsmi</th>
+		<th>Teklif Oluşturulma  Tarihi</th>
+		
+		<th>Teklif Değiştirilme Tarihi</th>
 		<th>Oluşturan Kullanıcı Adı</th>
 		<th>Sil</th>
 		<th>Güncelle</th>
@@ -25,11 +25,12 @@
 	{
 		<tr>
 			<th>@item.Id</th>
-			<td>@item.FirstName</td>
-			<td>@item.LastName</td>
-			<td>@item.Email</td>
-			<td>@item.Phone</td>
-			<td>@item.Address</td>
+			<td>@item.CustomerName</td>
+			<td>@item.UserName</td>
+			<td>@item.CreatedAt</td>
+			<td>@item.ValidityDate</td>
+			<td>@item.StatusName</td>
+
 			<td>@item.CreatedTime</td>
 			<td>@item.ModifiedTime</td>
 			<td>@item.UserName</td>
@@ -41,4 +42,5 @@
 	}
 </table>
 <a href="/Customer/AddCustomer/" class="btn mb-1 btn-rounded btn-outline-info">Yeni Müşteri Girişi</a>
+
 

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace OfferManagementSystem.Persistence;
+namespace OfferManagementSystem.WebApi;
 
 public partial class OfferMaster
 {
@@ -32,8 +32,4 @@ public partial class OfferMaster
     public virtual ICollection<StatusTransition> StatusTransitions { get; set; } = new List<StatusTransition>();
 
     public virtual UserMaster? User { get; set; }
-	//public string? CustomerName { get; set; }
-	//public string? UserName { get; set; }
-	//public string? StatusName { get; set; }
-	//public string? createdUserName { get; set; }
 }

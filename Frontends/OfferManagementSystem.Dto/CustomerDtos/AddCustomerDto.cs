@@ -25,5 +25,7 @@ namespace OfferManagementSystem.Dto.CustomerDtos
 		public DateTime? ModifiedTime { get; set; }
 
 		public int? UserId { get; set; }
-	}
+		public string? UserName { get; set; }
+     
+    }
 }

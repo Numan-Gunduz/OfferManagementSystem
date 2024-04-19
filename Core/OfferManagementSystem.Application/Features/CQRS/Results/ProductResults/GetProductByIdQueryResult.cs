@@ -20,6 +20,7 @@ namespace OfferManagementSystem.Application.Features.CQRS.Results.ProductResults
 
 		public DateTime? ModifiedTime { get; set; }
 
-		public int? UserId { get; set; }
-	}
+		//public int? UserId { get; set; }
+        public string? UserName { get; set; }
+    }
 }

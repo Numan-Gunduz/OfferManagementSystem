@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OfferManagementSystem.Persistence;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,7 +22,13 @@ namespace OfferManagementSystem.Application.Features.CQRS.Commands.CustomerComma
 		public DateTime? CreatedTime { get; set; }
 
 		public DateTime? ModifiedTime { get; set; }
-
+		//public string? UserName { get; set; }
 		public int? UserId { get; set; }
-	}
+
+		//public int? CustomerId { get; set; }
+        //public string? CustomerName { get; set; }
+        //public virtual UserMaster? User { get; set; }
+
+
+    }
 }

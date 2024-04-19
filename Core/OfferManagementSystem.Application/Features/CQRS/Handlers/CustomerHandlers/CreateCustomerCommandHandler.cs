@@ -14,25 +14,45 @@ namespace OfferManagementSystem.Application.Features.CQRS.Handlers.CustomerHandl
 	public class CreateCustomerCommandHandler
 	{
 		private readonly IRepository<CustomerMaster> _repository;
+		private readonly IRepository<UserMaster> _userReposirtory;
 
-		public CreateCustomerCommandHandler(IRepository<CustomerMaster> repository)
+		public CreateCustomerCommandHandler(IRepository<CustomerMaster> repository, IRepository<UserMaster> userReposirtory)
 		{
 			_repository = repository;
+			_userReposirtory = userReposirtory;
 		}
 		public async Task Handle(CreateCustomerCommand command)
 		{
+		
+
+           
+            var selectedUser = await _userReposirtory.GetByIdAsync(command.UserId ?? 0);
+
+			if (selectedUser == null)
+			{
+				// Seçilen kullanıcı bulunamadıysa hata fırlat
+				throw new Exception("Selected user not found.");
+			}
+
 			await _repository.CreateAsync(new CustomerMaster
 			{
-			Email = command.Email,
-			FirstName = command.FirstName,
-			LastName = command.LastName,
-			ModifiedTime = command.ModifiedTime,
-			CreatedTime = command.CreatedTime,
-			Address = command.Address,
-			Phone = command.Phone,
-			UserId = command.UserId,
+				Email = command.Email,
+				FirstName = command.FirstName,
+				LastName = command.LastName,
+				ModifiedTime = command.ModifiedTime,
+				CreatedTime = command.CreatedTime,
+				Address = command.Address,
+				Phone = command.Phone,
+				//UserName=command.FirstName,
+				
+
+
+
+
+
 
 			});
+			
 		}
 	}
 }

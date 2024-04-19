@@ -24,7 +24,7 @@ namespace OfferManagementSystem.Application.Features.CQRS.Handlers.UserHandlers
 			values.Email = command.Email;
 			values.Password = command.Password;
 			values.CreatedTime = command.CreatedTime;
-			values.CreatedUserId = command.CreatedUserId;
+			//values.CreatedUserId = command.CreatedUserId;
 			values.ModifiedTime = command.ModifiedTime;
 			values.FirstName = command.FirstName;
 			values.LastName = command.LastName;

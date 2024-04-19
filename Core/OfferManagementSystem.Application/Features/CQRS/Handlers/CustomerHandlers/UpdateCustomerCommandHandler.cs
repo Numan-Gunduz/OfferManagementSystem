@@ -34,6 +34,7 @@ namespace OfferManagementSystem.Application.Features.CQRS.Handlers.CustomerHandl
 			values.Id = command.Id;
 			values.UserId = command.UserId;
 			values.ModifiedTime = command.ModifiedTime;
+			
 			await _repository.UpdateAsync(values);
 
 		}
