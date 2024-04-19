@@ -1,5 +1,6 @@
 ﻿using OfferManagementSystem.Application.Features.CQRS.Queries.OfferQueries;
 using OfferManagementSystem.Application.Features.CQRS.Queries.ProductQueries;
+using OfferManagementSystem.Application.Features.CQRS.Results.CustomerResults;
 using OfferManagementSystem.Application.Features.CQRS.Results.OfferResults;
 using OfferManagementSystem.Application.Features.CQRS.Results.ProductResults;
 using OfferManagementSystem.Application.Interfaces;
@@ -16,10 +17,17 @@ namespace OfferManagementSystem.Application.Features.CQRS.Handlers.OfferHandlers
 	{
 
 		private readonly IRepository<OfferMaster> _repository;
+		private readonly IRepository<CustomerMaster> _customerMasterRepository;
+		private readonly IRepository<OfferStatus> _offerStatusRepository;
+		private readonly IRepository<UserMaster> _userMasterRepository;
 
-		public GetOfferByIdQueryHandler(IRepository<OfferMaster> repository)
+
+		public GetOfferByIdQueryHandler(IRepository<OfferMaster> repository, IRepository<UserMaster> userMasterRepository, IRepository<OfferStatus> offerStatusRepository, IRepository<CustomerMaster> customerMasterRepository)
 		{
 			_repository = repository;
+			_userMasterRepository = userMasterRepository;
+			_offerStatusRepository = offerStatusRepository;
+			_customerMasterRepository = customerMasterRepository;
 		}
 
 
@@ -27,30 +35,38 @@ namespace OfferManagementSystem.Application.Features.CQRS.Handlers.OfferHandlers
 
 		public async Task<GetOfferByIdQueryResult> Handle(GetOfferByIdQuery query)
 		{
-			{
-				var values = await _repository.GetByIdAsync(query.Id);
-				return new GetOfferByIdQueryResult
-				{
-				ModifiedTime=values.ModifiedTime,
-				UserId=values.UserId,
-				//User=values.User,
-				//StatusTransitions=values.StatusTransitions,
-				StatusId=values.StatusId,
-				//OfferDetails=values.OfferDetails,
-				//Status = values.Status,
-				Id=values.Id,
-				CreatedAt=values.CreatedAt,
-				CreatedTime = values.CreatedTime,
-				CreatedUserId=values.CreatedUserId,
-				//Customer = values.Customer,
-				CustomerId=values.CustomerId,
-				ValidityDate = values.ValidityDate
-				
-				
+			var offer = await _repository.GetByIdAsync(query.Id);
 
-				
-				};
-			}
+			var customermaster = await _customerMasterRepository.GetByIdAsync(offer.CustomerId ?? 0);
+
+			var offerstatus = await _offerStatusRepository.GetByIdAsync(offer.StatusId ?? 0);
+			var usermaster = await _userMasterRepository.GetByIdAsync(offer.UserId ?? 0);
+
+
+			return new GetOfferByIdQueryResult
+			{
+
+				Id = offer.Id,
+				//CustomerId = customerMaster.Id,
+				//UserId = userMaster.Id,
+				CreatedAt = offer.CreatedAt,
+				ValidityDate = offer.ValidityDate,
+				CreatedTime = offer.CreatedTime,
+				ModifiedTime = offer.ModifiedTime,
+				//	CreatedUserId = offer.CreatedUserId,
+				OfferDetails = offer.OfferDetails,
+				StatusName = offerstatus.StatusName,
+				CustomerName = customermaster.FirstName,
+				UserName = usermaster.FirstName,
+				//	StatusId= status.Id,
+				//	createdUserName=userMaster.FirstName,
+
+			};
+
 		}
 	}
 }
+
+
+
+
