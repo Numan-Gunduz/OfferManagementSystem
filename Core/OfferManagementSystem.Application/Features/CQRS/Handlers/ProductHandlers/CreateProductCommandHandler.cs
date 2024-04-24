@@ -12,13 +12,22 @@ namespace OfferManagementSystem.Application.Features.CQRS.Handlers.ProductHandle
 	public class CreateProductCommandHandler
 	{
 		private readonly IRepository<Product> _repository;
+		private readonly IRepository<UserMaster> _userRepository;
 
-		public CreateProductCommandHandler(IRepository<Product> repository)
+		public CreateProductCommandHandler(IRepository<Product> repository, IRepository<UserMaster> userRepository)
 		{
 			_repository = repository;
+			_userRepository = userRepository;
 		}
 		public async Task Handle (CreateProductCommand command)
 		{
+
+			var selectedUser = await _userRepository.GetByIdAsync(command.UserId ?? 0);
+			if (selectedUser == null)
+			{
+				// Seçilen kullanıcı bulunamadıysa hata fırlat
+				throw new Exception("Seçilen Kullanıcı Bulunamadı.");
+			}
 			await _repository.CreateAsync(new Product
 			{
 				CreatedTime = command.CreatedTime,
@@ -27,6 +36,7 @@ namespace OfferManagementSystem.Application.Features.CQRS.Handlers.ProductHandle
 				Name = command.Name,
 				Price = command.Price,
 				UserId = command.UserId
+				
 			});
 		}
 	}

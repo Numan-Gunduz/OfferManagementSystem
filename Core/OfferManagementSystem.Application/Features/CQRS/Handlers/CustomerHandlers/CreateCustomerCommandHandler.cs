@@ -43,6 +43,7 @@ namespace OfferManagementSystem.Application.Features.CQRS.Handlers.CustomerHandl
 				CreatedTime = command.CreatedTime,
 				Address = command.Address,
 				Phone = command.Phone,
+				UserId=command.UserId,
 				//UserName=command.FirstName,
 				
 

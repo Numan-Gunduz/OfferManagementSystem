@@ -34,13 +34,14 @@ namespace OfferManagementSystem.Application.Features.CQRS.Handlers.ProductHandle
 
 				results.Add(new GetProductQueryResult
 				{
-					UserId = product.Id,
+					UserId = user.Id,
 					CreatedTime = product.CreatedTime,
 					Description = product.Description,
 					Id = product.Id,
 					ModifiedTime	= product.ModifiedTime,
 					Name = product.Name,
 					Price= product.Price,
+
 					UserName = user != null ? user.FirstName : "Bilinmiyor" // Kullanıcı adını ekledik veya "Unknown" olarak ayarladık
 					 
 				});
