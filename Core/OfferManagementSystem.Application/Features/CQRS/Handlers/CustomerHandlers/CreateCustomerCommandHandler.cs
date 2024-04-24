@@ -44,6 +44,7 @@ namespace OfferManagementSystem.Application.Features.CQRS.Handlers.CustomerHandl
 				Address = command.Address,
 				Phone = command.Phone,
 				UserId=command.UserId,
+				
 				//UserName=command.FirstName,
 				
 

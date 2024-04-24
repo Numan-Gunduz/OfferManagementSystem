@@ -54,7 +54,7 @@ namespace OfferManagementSystem.Application.Features.CQRS.Handlers.OfferHandlers
 				CreatedTime = offer.CreatedTime,
 				ModifiedTime = offer.ModifiedTime,
 				//	CreatedUserId = offer.CreatedUserId,
-				OfferDetails = offer.OfferDetails,
+				//OfferDetails = offer.OfferDetails,
 				StatusName = offerstatus.StatusName,
 				CustomerName = customermaster.FirstName,
 				UserName = usermaster.FirstName,

@@ -39,27 +39,30 @@
 				var customerMaster = await _customerMasterRepository.GetByIdAsync(offer.CustomerId ?? 0);
 				var status = await _offerStatusRepository.GetByIdAsync(offer.StatusId ?? 0);
 				var userMaster = await _userMasterRepository.GetByIdAsync(offer.UserId ?? 0);
+				var offerDetailMaster = await _userMasterRepository.GetByIdAsync(offer.UserId ?? 0);
 				//var offerdetail = await _offerDetailMaster.GetByIdAsync();
-				if (customerMaster != null && status != null && userMaster != null)
+				if (customerMaster != null && status != null && userMaster != null && offerDetailMaster!= null)
 				{
 
 					results.Add(new GetOfferQueryResult
 					{
 						Id = offer.Id,
-						//CustomerId = customerMaster.Id,
-						//UserId = userMaster.Id,
+					
 						CreatedAt = offer.CreatedAt,
 						ValidityDate = offer.ValidityDate,
 						CreatedTime = offer.CreatedTime,
 						ModifiedTime = offer.ModifiedTime,
-					//	CreatedUserId = offer.CreatedUserId,
-						OfferDetails = offer.OfferDetails,
+						//OfferDetails = offer.OfferDetails,
+						//OfferDetails=offerDetailMaster.OfferDetails,
 						StatusName = status.StatusName,
 						CustomerName = customerMaster.FirstName,
 						UserName = userMaster.FirstName,
-					//	StatusId= status.Id,
-					//	createdUserName=userMaster.FirstName,
-						
+						//	StatusId= status.Id,
+						//	createdUserName=userMaster.FirstName,
+						//CustomerId = customerMaster.Id,
+						//UserId = userMaster.Id,
+						//	CreatedUserId = offer.CreatedUserId,
+
 
 
 
