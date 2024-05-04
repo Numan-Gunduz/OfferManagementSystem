@@ -1,7 +1,7 @@
 ﻿using OfferManagementSystem.Application.Features.CQRS.Queries.UserQueries;
 using OfferManagementSystem.Application.Features.CQRS.Results.UserRoles;
 using OfferManagementSystem.Application.Interfaces;
-using OfferManagementSystem.Persistence;
+using OfferManagementSystem.Persistence.Context;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace OfferManagementSystem.Application.Features.CQRS.Handlers.UserHandlers
 {
-	public class GetUserByIdQueryHandler
+    public class GetUserByIdQueryHandler
 	{
 		private readonly IRepository<UserMaster>_repository;
 

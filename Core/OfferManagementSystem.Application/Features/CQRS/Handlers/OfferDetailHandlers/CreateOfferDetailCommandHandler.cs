@@ -1,7 +1,7 @@
 ﻿using OfferManagementSystem.Application.Features.CQRS.Commands.OfferCommands;
 using OfferManagementSystem.Application.Features.CQRS.Commands.OfferDetailCommands;
 using OfferManagementSystem.Application.Interfaces;
-using OfferManagementSystem.Persistence;
+using OfferManagementSystem.Persistence.Context;
 using OfferManagementSystem.Persistence.Repositories;
 using System;
 using System.Collections.Generic;
@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace OfferManagementSystem.Application.Features.CQRS.Handlers.OfferDetailHandlers
 {
-	public class CreateOfferDetailCommandHandler
+    public class CreateOfferDetailCommandHandler
 	{
 		private readonly IRepository<OfferDetail> _offerDetailrepository;
 		private readonly IRepository<OfferMaster> _offerMasterrepository;

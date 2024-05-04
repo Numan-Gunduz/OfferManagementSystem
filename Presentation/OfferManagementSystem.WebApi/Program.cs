@@ -4,7 +4,7 @@ using OfferManagementSystem.Application.Features.CQRS.Handlers.OfferHandlers;
 using OfferManagementSystem.Application.Features.CQRS.Handlers.ProductHandlers;
 using OfferManagementSystem.Application.Features.CQRS.Handlers.UserHandlers;
 using OfferManagementSystem.Application.Interfaces;
-using OfferManagementSystem.Persistence;
+using OfferManagementSystem.Persistence.Context;
 using OfferManagementSystem.Persistence.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);

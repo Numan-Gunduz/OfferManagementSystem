@@ -1,15 +1,15 @@
 ﻿
-	using OfferManagementSystem.Application.Interfaces;
-	using OfferManagementSystem.Persistence;
-	using System.Collections.Generic;
-	using System.Linq;
-	using System.Threading.Tasks;
-	using Microsoft.EntityFrameworkCore;
-	using OfferManagementSystem.Application.Features.CQRS.Results.OfferResults;
+using OfferManagementSystem.Application.Interfaces;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using OfferManagementSystem.Application.Features.CQRS.Results.OfferResults;
+using OfferManagementSystem.Persistence.Context;
 
-	namespace OfferManagementSystem.Application.Features.CQRS.Handlers.OfferHandlers
-	{
-		public class GetOfferQueryHandler
+namespace OfferManagementSystem.Application.Features.CQRS.Handlers.OfferHandlers
+{
+    public class GetOfferQueryHandler
 		{
 			private readonly IRepository<OfferMaster> _repository;
 			private readonly IRepository<CustomerMaster> _customerMasterRepository;

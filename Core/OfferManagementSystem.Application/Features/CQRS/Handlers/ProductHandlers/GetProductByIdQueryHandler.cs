@@ -4,7 +4,7 @@ using OfferManagementSystem.Application.Features.CQRS.Results.CustomerResults;
 using OfferManagementSystem.Application.Features.CQRS.Results.ProductResults;
 using OfferManagementSystem.Application.Features.CQRS.Results.UserRoles;
 using OfferManagementSystem.Application.Interfaces;
-using OfferManagementSystem.Persistence;
+using OfferManagementSystem.Persistence.Context;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace OfferManagementSystem.Application.Features.CQRS.Handlers.ProductHandlers
 {
-	public class GetProductByIdQueryHandler
+    public class GetProductByIdQueryHandler
 	{
 		private readonly IRepository<Product> _repository;
 		private readonly IRepository<UserMaster> _userRepository;

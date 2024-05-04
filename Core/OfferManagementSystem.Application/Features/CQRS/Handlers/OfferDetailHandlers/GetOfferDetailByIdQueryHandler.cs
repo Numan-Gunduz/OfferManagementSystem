@@ -3,7 +3,7 @@ using OfferManagementSystem.Application.Features.CQRS.Queries.OfferQueries;
 using OfferManagementSystem.Application.Features.CQRS.Results.OfferDetailResults;
 using OfferManagementSystem.Application.Features.CQRS.Results.OfferResults;
 using OfferManagementSystem.Application.Interfaces;
-using OfferManagementSystem.Persistence;
+using OfferManagementSystem.Persistence.Context;
 using OfferManagementSystem.Persistence.Repositories;
 using System;
 using System.Collections.Generic;
@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace OfferManagementSystem.Application.Features.CQRS.Handlers.OfferDetailHandlers
 {
-	public class GetOfferDetailByIdQueryHandler
+    public class GetOfferDetailByIdQueryHandler
 	{
 
 

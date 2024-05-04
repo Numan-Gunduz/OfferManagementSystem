@@ -4,7 +4,7 @@ using OfferManagementSystem.Application.Features.CQRS.Results.CustomerResults;
 using OfferManagementSystem.Application.Features.CQRS.Results.OfferResults;
 using OfferManagementSystem.Application.Features.CQRS.Results.ProductResults;
 using OfferManagementSystem.Application.Interfaces;
-using OfferManagementSystem.Persistence;
+using OfferManagementSystem.Persistence.Context;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace OfferManagementSystem.Application.Features.CQRS.Handlers.OfferHandlers
 {
-	public class GetOfferByIdQueryHandler
+    public class GetOfferByIdQueryHandler
 	{
 
 		private readonly IRepository<OfferMaster> _repository;

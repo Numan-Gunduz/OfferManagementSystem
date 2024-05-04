@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 
-namespace OfferManagementSystem.Persistence;
+namespace OfferManagementSystem.Persistence.Context;
 
 public partial class OfferManagementSystemContext : DbContext
 {

@@ -2,14 +2,14 @@
 
 using OfferManagementSystem.Application.Features.CQRS.Results.CustomerResults;
 using OfferManagementSystem.Application.Interfaces;
-using OfferManagementSystem.Persistence;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using OfferManagementSystem.Application.Features.CQRS.Queries.CustomerQueries;
+using OfferManagementSystem.Persistence.Context;
 
 namespace OfferManagementSystem.Application.Features.CQRS.Handlers.CustomerHandlers
 {
-	public class GetCustomerByIdQueryHandler
+    public class GetCustomerByIdQueryHandler
 	{
 		private readonly IRepository<CustomerMaster> _repository;
 		private readonly IRepository<UserMaster> _userRepository;

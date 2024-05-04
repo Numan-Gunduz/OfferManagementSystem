@@ -1,7 +1,7 @@
 ﻿
 using OfferManagementSystem.Application.Features.CQRS.Commands.OfferCommands;
 using OfferManagementSystem.Application.Interfaces;
-using OfferManagementSystem.Persistence;
+using OfferManagementSystem.Persistence.Context;
 using System;
 using System.Threading.Tasks;
 

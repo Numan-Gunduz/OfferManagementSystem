@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace OfferManagementSystem.Persistence;
+namespace OfferManagementSystem.Persistence.Context;
 
-public partial class Role
+public partial class Permission
 {
     public int Id { get; set; }
 
-    public string RoleName { get; set; } = null!;
+    public string PermissionName { get; set; } = null!;
 
     public DateTime? CreatedTime { get; set; }
 
@@ -16,8 +16,4 @@ public partial class Role
     public int? UserId { get; set; }
 
     public virtual ICollection<RolePermission> RolePermissions { get; set; } = new List<RolePermission>();
-
-    public virtual UserMaster? User { get; set; }
-
-    public virtual ICollection<UsersRole> UsersRoles { get; set; } = new List<UsersRole>();
 }

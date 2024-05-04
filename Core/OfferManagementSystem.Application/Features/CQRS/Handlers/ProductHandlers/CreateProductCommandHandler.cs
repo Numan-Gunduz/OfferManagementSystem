@@ -1,6 +1,6 @@
 ﻿using OfferManagementSystem.Application.Features.CQRS.Commands.ProductCommands;
 using OfferManagementSystem.Application.Interfaces;
-using OfferManagementSystem.Persistence;
+using OfferManagementSystem.Persistence.Context;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace OfferManagementSystem.Application.Features.CQRS.Handlers.ProductHandlers
 {
-	public class CreateProductCommandHandler
+    public class CreateProductCommandHandler
 	{
 		private readonly IRepository<Product> _repository;
 		private readonly IRepository<UserMaster> _userRepository;

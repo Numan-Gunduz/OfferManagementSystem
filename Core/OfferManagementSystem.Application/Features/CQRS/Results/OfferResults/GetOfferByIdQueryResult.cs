@@ -1,4 +1,4 @@
-﻿using OfferManagementSystem.Persistence;
+﻿using OfferManagementSystem.Persistence.Context;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace OfferManagementSystem.Application.Features.CQRS.Results.OfferResults
 {
-	public class GetOfferByIdQueryResult
+    public class GetOfferByIdQueryResult
 	{
 
 		public int Id { get; set; }

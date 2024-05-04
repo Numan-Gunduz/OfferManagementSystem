@@ -1,7 +1,7 @@
 ﻿using OfferManagementSystem.Application.Features.CQRS.Commands.OfferCommands;
 using OfferManagementSystem.Application.Features.CQRS.Commands.ProductCommands;
 using OfferManagementSystem.Application.Interfaces;
-using OfferManagementSystem.Persistence;
+using OfferManagementSystem.Persistence.Context;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace OfferManagementSystem.Application.Features.CQRS.Handlers.OfferHandlers
 {
-	public class RemoveOfferCommandHandler
+    public class RemoveOfferCommandHandler
 	{
 		private readonly IRepository<OfferMaster> _repository;
 
