@@ -1,4 +1,5 @@
 using OfferManagementSystem.Application.Features.CQRS.Handlers.CustomerHandlers;
+using OfferManagementSystem.Application.Features.CQRS.Handlers.OfferDetailHandlers;
 using OfferManagementSystem.Application.Features.CQRS.Handlers.OfferHandlers;
 using OfferManagementSystem.Application.Features.CQRS.Handlers.ProductHandlers;
 using OfferManagementSystem.Application.Features.CQRS.Handlers.UserHandlers;
@@ -43,6 +44,14 @@ builder.Services.AddScoped<GetOfferByIdQueryHandler>();
 builder.Services.AddScoped<CreateOfferCommandHandler>();
 builder.Services.AddScoped<RemoveOfferCommandHandler>();
 builder.Services.AddScoped<UpdateOfferCommandHandler>();
+
+
+
+builder.Services.AddScoped<GetOfferDetailQueryHandler>();
+builder.Services.AddScoped<GetOfferDetailByIdQueryHandler>();
+builder.Services.AddScoped<CreateOfferDetailCommandHandler>();
+builder.Services.AddScoped<RemoveOfferDetailCommandHandler>();
+builder.Services.AddScoped<UpdateOfferDetailCommandHandler>();
 
 
 
