@@ -50,7 +50,7 @@ namespace OfferManagementSystem.Application.Features.CQRS.Handlers.OfferDetailHa
 			{
 				Quantity = command.Quantity,
 				UnitPrice=command.UnitPrice,
-				TotalPrice=command.TotalPrice,
+				TotalPrice=command.UnitPrice*command.Quantity,
 				CreatedTime= command.CreatedTime,
 				ModifiedTime=command.ModifiedTime,
 				OfferId=command.OfferId,

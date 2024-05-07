@@ -1,3 +1,5 @@
+	using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
 using OfferManagementSystem.Application.Features.CQRS.Handlers.CustomerHandlers;
 using OfferManagementSystem.Application.Features.CQRS.Handlers.OfferDetailHandlers;
 using OfferManagementSystem.Application.Features.CQRS.Handlers.OfferHandlers;
@@ -6,9 +8,23 @@ using OfferManagementSystem.Application.Features.CQRS.Handlers.UserHandlers;
 using OfferManagementSystem.Application.Interfaces;
 using OfferManagementSystem.Persistence.Context;
 using OfferManagementSystem.Persistence.Repositories;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(opt =>
+{
+	opt.RequireHttpsMetadata = false;
+	opt.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
+	{
+		ValidAudience = "https://localhost/",
+		ValidIssuer = "https://localhost",
+		ClockSkew = TimeSpan.Zero,
+		IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("OfferManagmentSytemOfferManagmentSytem")),
+		ValidateLifetime = true,
+		ValidateIssuerSigningKey = true,
 
+	};
+});
 
 builder.Services.AddScoped<OfferManagementSystemContext>();
 //builder.Services.AddScoped(typeof(IRepository<>),typeof(IRepository<>));
@@ -80,7 +96,7 @@ if (app.Environment.IsDevelopment())
 }
 app.UseCors("OfferApiCors");
 app.UseHttpsRedirection();
-
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
