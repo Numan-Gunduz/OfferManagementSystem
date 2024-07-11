@@ -1,4 +1,4 @@
-	using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using OfferManagementSystem.Application.Features.CQRS.Handlers.CustomerHandlers;
 using OfferManagementSystem.Application.Features.CQRS.Handlers.OfferDetailHandlers;
@@ -16,8 +16,9 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
 	opt.RequireHttpsMetadata = false;
 	opt.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
 	{
-		ValidAudience = "https://localhost/",
-		ValidIssuer = "https://localhost",
+		ValidIssuer =   "https://localhost",
+		ValidAudience = "https://localhost",
+
 		ClockSkew = TimeSpan.Zero,
 		IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("OfferManagmentSytemOfferManagmentSytem")),
 		ValidateLifetime = true,
@@ -25,6 +26,8 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
 
 	};
 });
+		
+
 
 builder.Services.AddScoped<OfferManagementSystemContext>();
 //builder.Services.AddScoped(typeof(IRepository<>),typeof(IRepository<>));

@@ -17,7 +17,7 @@ namespace OfferManagementSystem.WebApi.Models
 
 			SigningCredentials credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
-			JwtSecurityToken token = new JwtSecurityToken(issuer: "https://localhost", audience: "https://localhost/",
+			JwtSecurityToken token = new JwtSecurityToken(issuer: "https://localhost", audience: "https://localhost",
 				notBefore: DateTime.Now, expires: DateTime.Now.AddMinutes(5), signingCredentials: credentials);
 
 			JwtSecurityTokenHandler jwtSecurityTokenHandler = new JwtSecurityTokenHandler();
@@ -29,15 +29,16 @@ namespace OfferManagementSystem.WebApi.Models
 			SymmetricSecurityKey key = new SymmetricSecurityKey(bytes);
 			SigningCredentials credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
-			List<Claim> claims = new List<Claim>()
-			{
-				 new Claim(ClaimTypes.NameIdentifier, Guid.NewGuid().ToString()),
-				new Claim(ClaimTypes.Role, "Admin"),
-				new Claim(ClaimTypes.Role, "CustomerManagment"),
-				new Claim(ClaimTypes.Role, "OfferManagment"),	
-				new Claim(ClaimTypes.Role, "UserManagment")
-			};
-			JwtSecurityToken jwtSecurityToken = new JwtSecurityToken(issuer: "https://localhost", audience: "https://localhost/",
+			//List<Claim> claims = new List<Claim>()
+			var claims = new List<Claim>
+{
+	new Claim(ClaimTypes.NameIdentifier, Guid.NewGuid().ToString()),
+	new Claim(ClaimTypes.Role,"Admin"),
+	new Claim(ClaimTypes.Role,"CustomerManagmentt"),
+	new Claim(ClaimTypes.Role,"OfferManagment"),
+	new Claim(ClaimTypes.Role,"UserManagment")
+};
+			JwtSecurityToken jwtSecurityToken = new JwtSecurityToken(issuer: "https://localhost", audience: "https://localhost",
 				notBefore: DateTime.Now, expires: DateTime.Now.AddMinutes(5), signingCredentials: credentials, claims: claims);
 			JwtSecurityTokenHandler handler = new JwtSecurityTokenHandler();
 			return handler.WriteToken(jwtSecurityToken);

@@ -10,7 +10,7 @@ namespace OfferManagementSystem.WebApi.Controllers
 	[ApiController]
 	public class DefaultController : ControllerBase
 	{
-		[HttpGet("[action]")]
+		[HttpGet("[action]")] 
 		public IActionResult TokenOlustur()
 		{
 			return Ok(new CreateToken().TokenCreate());
@@ -19,6 +19,11 @@ namespace OfferManagementSystem.WebApi.Controllers
 		public IActionResult AdminTokenOlustur()
 		{
 			return Ok(new CreateToken().TokenCreateAdmin());
+		}
+		[HttpGet("[action]")]
+		public IActionResult Test1()
+		{
+			return Ok("Hoşgeldiniz Bu Token oluştuğuna dair kanıt niteliğindedir");
 		}
 		[Authorize]
 		[HttpGet("[action]")]
@@ -32,7 +37,7 @@ namespace OfferManagementSystem.WebApi.Controllers
 		{
 			return Ok("Admin Başarıyla Giriş Yaptı");
 		}
-		[Authorize(Roles = "UserManagment")]
+		[Authorize(Roles = "UserManagmentt")]
 		[HttpGet("[action]")]
 		public IActionResult UserManagment()
 		{
@@ -53,3 +58,4 @@ namespace OfferManagementSystem.WebApi.Controllers
 	}
 
 }
+//https://localhost:44359/api/Default/TokenOlustur
